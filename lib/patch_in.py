@@ -14,6 +14,4 @@ def patch_in(self_name, mod_name):
     # patch
     for name, obj in delegate_to:
         if not (name in defined_names):
-            # self[name] = obj
             setattr(self, name, obj)
-            # self.__setattr__(name, real_module[name])
