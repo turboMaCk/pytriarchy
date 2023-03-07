@@ -49,7 +49,6 @@ Example file [`file.py`](file.py) ran through [`python3`](python3) shell script 
 
 ```
 ./python3 file.py
-file.py
 you cannot
 => will evaluate:
 => b'b3MuZ2V0bG9naW4oKQ=='

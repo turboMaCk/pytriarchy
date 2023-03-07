@@ -6,14 +6,11 @@ set -e
 FILE=$1
 INJECT=lib/inject.py
 
-echo $FILE
-
 # shift arguments
 shift
 
 # inject the inject.py to file
 SRC=$(cat ${INJECT} ${FILE})
-
 
 IMPORTS=$(echo "${SRC}" | grep '^import\s')
 REST=$(echo "${SRC}" | grep -v '^import\s')
@@ -22,4 +19,3 @@ NEW_MODULE=$IMPORTS$REST
 
 # Eval using python
 echo "${NEW_MODULE}" | python3 $@
-
