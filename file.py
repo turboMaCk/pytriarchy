@@ -10,4 +10,7 @@ print(eval(base64.b64decode(encoded)))
 
 print("But I can get PATH from env", os.getenv("PATH"))
 
-
+try:
+    print("But other modules can!", os.i_can())
+except AttributeError:
+    print("Not defined")
