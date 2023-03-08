@@ -72,6 +72,34 @@ def foo():
 
 and similar.
 
+This library also at the moment doesn't resolve module aliasing so for instance:
+
+```python
+import os as its_mine_os
+
+its_mine_os.getlogin()
+```
+
+would require change in patching logic.
+
+Lastly the [shell script](python3) is performing
+reordering of imports in the file being loaded.
+This might lead to issues in cases like
+
+```python
+import foo as a
+# use a
+a.foo()
+
+import bar as a
+# use a again
+a.bar()
+```
+
+in general a pretty tricky part of this approach is to find a right time when
+to run the patching logic. It has to be before any code that should be patched
+is executed but after all the modules are imported.
+
 ## LICENSE
 
 [LICENSE](LICENSE)
